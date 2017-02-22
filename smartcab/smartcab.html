@@ -322,9 +322,9 @@ div#notebook {
 <p><strong>Answer:</strong></p>
 <ul>
 <li>The flags<ul>
-<li>The flag num_dummies changes the number of cars moving around</li>
+<li>The flag num_dummies changes the number of cars moving around. That also makes it harder for the agent to reach the destination, because traffic from the left and from the front sometimes make impossible for the agent to travel in the destination direction without commiting a violation or accident.</li>
 <li>grid_size changes the total roads and intersections in the game, also changing the window size to allow visualization. </li>
-<li>update_delay changes the time step of the simulation, making all dummies move around faster or slower.</li>
+<li>update_delay changes the time step of the simulation, making all dummies and the agent move around faster or slower.</li>
 </ul>
 </li>
 <li>The function called is act(), which has parameters (self, agent, action).</li>
@@ -6711,25 +6711,25 @@ The tuple is (waypoint, light, left, oncoming)</p>
 </tbody>
 </table>
 <p>There are many states in which the policy is the optimal, as in the above state where the agent correctly stays put while the light is red.</p>
-<p>The following state is non-optimal, as the light is red but the agent drives right anyway.</p>
+<p>The following state is non-optimal, because although going to the right is not a violation, it takes the cab farther away from the destination. Staying still while the light is red would be the optimal, but the agent hasn't visited that option in the training.</p>
 <table>
 <thead><tr>
 <th style="text-align:center">$\frac{State}{Action}$</th>
-<th style="text-align:center">'right', 'red', 'left', 'forward'</th>
+<th style="text-align:center">'left', 'red', 'left', 'left'</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:center">forward</td>
-<td style="text-align:center">0</td>
+<td style="text-align:center">-8.95</td>
 </tr>
 <tr>
 <td style="text-align:center">left</td>
-<td style="text-align:center">0</td>
+<td style="text-align:center">-8.64</td>
 </tr>
 <tr>
 <td style="text-align:center">right</td>
-<td style="text-align:center">1.32</td>
+<td style="text-align:center">0.03</td>
 </tr>
 <tr>
 <td style="text-align:center">None</td>
