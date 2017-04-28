@@ -1560,7 +1560,7 @@ Fill in the missing code below so that the function will make this prediction.<b
     <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">passenger</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">iterrows</span><span class="p">():</span>
         <span class="k">if</span> <span class="n">passenger</span><span class="o">.</span><span class="n">Sex</span><span class="o">==</span><span class="s">&#39;female&#39;</span><span class="p">:</span>
             <span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">passenger</span><span class="o">.</span><span class="n">Age</span> <span class="o">&lt;=</span> <span class="mi">10</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">passenger</span><span class="o">.</span><span class="n">Age</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">:</span> <span class="c">#passed first if mean it is male (do not need to explicit)</span>
             <span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">predictions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -2114,7 +2114,7 @@ Make sure to keep track of the various features and conditions you tried before 
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer</strong>: Predictions have an accuracy of 80.81%. Some features were much more informative than others, like Sex and Age. Others do not had much sense such as the port of embarcation.</p>
+<p><strong>Answer</strong>: Predictions have an accuracy of 80.81%. Some features were much more informative than others, like Sex and Age. Others do not had much sense such as the port of embarcation. The process of searching for features was based entirely on the graphs, such that when I found situations where there was great difference between red and green bars I made a prediction for all of the people in that category to be classified as the highest bar.</p>
 
 </div>
 </div>
